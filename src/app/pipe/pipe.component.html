@@ -1,0 +1,45 @@
+<div class="page-area">
+    <div class="col-md-12 text-center">
+        <h2>Pipe</h2>
+
+    </div>
+    <!-- <h4>{{value | waterpipe:10}}</h4>
+
+    <ul *ngFor="let name of namearr">
+        <li>{{name | waterpipe:8}}</li>
+    </ul> -->
+
+    <div class="row justify-content-center">
+        <div class="col-md-8 form-inline mb-2">
+            <input type="text" placeholder="add product" class="form-control mb-1" #add>
+            <button class="btn btn-success ml-2" (click)="onaddproduct(add)">Add Product</button>
+        </div>
+        <div class="col-md-8">
+            <div class="form-group">
+                <input type="email" class="form-control" id="search" placeholder="enter email...." [(ngModel)]="namesearch">
+              </div>
+        </div>
+        <div class="col-md-8">
+            <table class="table">
+                <thead class="thead-dark">
+                  <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Product Name</th>
+                    <th scope="col">Product Price</th>
+                    <th scope="col">Availibility</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let product of productarr | filter:namesearch">
+                    <th scope="row">{{product.srno}}</th>
+                    <td>{{product.name}}</td>
+                    <td>{{product.price}}</td>
+                    <td><button class="btn">{{product.avaibility}}</button></td>
+                  </tr>
+                </tbody>
+              </table>
+              
+           </div>
+    </div>
+
+</div>

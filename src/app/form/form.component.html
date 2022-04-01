@@ -1,0 +1,50 @@
+<div class="page-area">
+    <h1 style="text-align: center;">Form</h1>
+</div>
+
+<div class="row justify-content-center">
+    <div class="col-md-6 text-left rounded shadow py-4 bg-white">
+        <form  #myform="ngForm">
+
+            <div ngModelGroup="userdetails" #userdetail="ngModelGroup">
+
+            <div class="form-group">
+              <label for="username">username</label>
+              <input type="text" class="form-control" id="username" placeholder="Enter username"
+               name="username" [(ngModel)]="username" required>
+               <small *ngIf="username">username is :{{username}}</small>
+               <button class="btn-primary btn-sm mt-2" (click)="setusername()">set user</button>
+            </div>
+            <br>
+            <div class="form-group">
+              <label for="email">email</label>
+              <input type="email" class="form-control" id="email" placeholder="enter email"
+               name="email" ngModel required email #email="ngModel">
+               <small class="text-danger" *ngIf="!email.valid && email.touched">please enter valid email</small> 
+            </div>
+            <span class="text-danger"
+            *ngIf="!userdetail.valid && userdetail.touched">please enter valid details</span>
+        </div>
+        <br>
+            <div class="form-group">
+              <label for="course">Select course</label>
+              <select class="form-control" id="course" name="course" [(ngModel)]="defaultvalue">
+                  <option value="angular">Angular</option>
+                  <option value="html">Html</option>
+                  <option value="javascript">javascript</option>
+                  <option value="php">PHP</option>
+              </select>
+            </div>
+            <br>
+            <div class="form-group">
+                <div class="custom-control custom-radio" *ngFor="let gender of genders">
+                    <input type="radio" name="gender" id="{{gender.id}}"
+                     class="custom-control-input" [(ngModel)]="defaultgender" value="{{gender.value}}">
+                    <label class="custom-control-label" for="{{gender.id}}">{{gender.value}}</label>
+                  </div>
+            </div>
+            <br>
+            <button type="submit" class="btn btn-success" [disabled]="!myform.valid" (click)="onsubmit(myform)">Submit</button>
+          </form>
+    </div>
+</div>

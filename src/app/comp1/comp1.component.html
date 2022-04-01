@@ -1,0 +1,10 @@
+<div class="box text-center" appTestdirective>
+    Username : <strong>{{username}}</strong>
+    <br><br>
+    <!-- <input type="text" placeholder="update name" #uname> -->
+    <button (click)="clickme()">Click Me</button>&nbsp;
+    <button (click)="changecolor('red')">RED</button>&nbsp;
+    <button (click)="changecolor('green')">GREEN</button>&nbsp;
+    <br>
+    <ng-content></ng-content>
+</div>

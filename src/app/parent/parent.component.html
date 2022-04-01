@@ -1,0 +1,46 @@
+<div class="page-area">
+    <div class="text-center">
+    <h1>buy products</h1>
+</div>
+<div class="alert alert-light border d-flex align-items-center" *ngIf="addedproduct">
+<strong class="text-success">{{addedproduct}}</strong>&nbsp; is selected and add in cart 
+<button class="button btn-success">Check Out</button>
+</div>
+    <hr class="mb-3">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card">
+                <img src="./assets/images/laptop.jpg" class="card-img-top" style="width: 200px;height: 200px;" alt="...">
+                <div class="card-body">
+                  <h5 class="card-title">laptop</h5>
+                  <a class="btn btn-success" (click)="onselectproduct('laptop')">select this product</a>
+                </div>
+              </div>
+              <div class="card">
+                <img src="./assets/images/mobile.jpg" class="card-img-top" style="width: 200px;" alt="...">
+                <div class="card-body">
+                  <h5 class="card-title">Mobile</h5>
+                  <a class="btn btn-success" (click)="onselectproduct('mobile')">select this product</a>
+                </div>
+              </div>
+              <div class="card">
+                <img src="./assets/images/tv.jpg" class="card-img-top" style="width: 200px;" alt="...">
+                <div class="card-body">
+                  <h5 class="card-title">Tv</h5>
+                  <a class="btn btn-success" (click)="onselectproduct('tv')">select this product</a>
+                </div>
+              </div>
+              <div class="card">
+                <img src="./assets/images/machine.jpg" class="card-img-top" style="width: 200px; height: 200px;" alt="...">
+                <div class="card-body">
+                  <h5 class="card-title">Machine</h5>
+                  <a class="btn btn-success" (click)="onselectproduct('machine')">select this product</a>
+                </div>
+              </div>
+        </div>
+        <app-child 
+        [productselected]="productselected" 
+        [selectedproduct]="selectedproduct"
+        (addedproduct)="onaddproduct($event)"></app-child>
+    </div>
+</div>
